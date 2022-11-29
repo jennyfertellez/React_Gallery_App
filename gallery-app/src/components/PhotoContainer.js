@@ -1,5 +1,5 @@
 import React from "react";
-import Photos from "./Photo";
+import Photo from "./Photo";
 
 //Photo Container
 const PhotoContainer = (props) => {

@@ -1,7 +1,7 @@
 import React from "react";
 
 //Photo component to display elements from the li and img of each photo
-const Photos = (props) => {
+const Photo = (props) => {
     return (
         <li>
             <img 
@@ -12,4 +12,4 @@ const Photos = (props) => {
     );
 };
 
-export default Photos;
+export default Photo;
