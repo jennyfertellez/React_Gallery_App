@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios"
 import apiKey from './config'
 import logo from './logo.svg';
 import './App.css';
@@ -6,7 +7,16 @@ import './App.css';
 function App() {
   const [photo, setPhoto] = useState([]);
   useEffect(() => {
-    fetch();
+    axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&per_page=24&format=json&nojsoncallback=1`)
+      .then(response => {
+        // handle success
+        setPhoto(response.data.data)
+
+      })
+      .catch(error => {
+        // handle error
+        console.log("Error fetching and parsing data", error);
+      })
   },[]);
   return (
     <div className="App">
