@@ -1,9 +1,10 @@
 //Required Dependencies
 import React, { useEffect, useState } from "react";
+import { Route, Routes, Navigate } from "react-router-dom"
 import axios from "axios"
 import apiKey from './config'
 
-//Components
+//App Components
 import SearchForm from "./components/SearchForm";
 import Navigation from "./components/Navigation";
 import PhotoContainer from "./components/PhotoContainer"
@@ -11,8 +12,10 @@ import NotFound from "./components/NotFound";
 
 
 //Main App Component
-function App = (props) => {
+const App = (props) => {
   const [photos, setPhotos] = useState([]);
+
+  
   useEffect(() => {
     axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${keyword}&per_page=24&format=json&nojsoncallback=1`)
       .then(response => {
