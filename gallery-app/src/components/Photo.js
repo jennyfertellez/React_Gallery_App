@@ -1,5 +1,6 @@
 import React from "react";
 
+//Photo component to display elements from the li and img of each photo
 const Photos = (props) => {
     return (
         <li>
