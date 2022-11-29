@@ -18,37 +18,45 @@ const App = (props) => {
   const [kitten, setKitten] = useState([]);
   const [llama, setLlama] = useState([]);
 
-
+//
   useEffect(() => {
-    axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${keyword}&per_page=24&format=json&nojsoncallback=1`)
-      .then(response => {
-        // handle success
-        setPhotos(response.data.data)
+    performSearch();
+    performSearch("bunny");
+    performSearch("kitten");
+    performSearch("llama");
+  },[]);
 
+//
+  const performSearch = (keyword) => {
+    axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${keyword}&per_page=24&format=json&nojsoncallback=1`)
+    .then((response) => {
+        // handle success
+      if (keyword === "bunny") {
+        setBunny(response.data.photos.photo);
+      } else if (keyword === "kitten") {
+        setKitten(response.data.photos.photo);
+      } else if (keyword === "llama") {
+        setLlama(reponse.data.photos.photo);
+      } else {
+        setPhotos(response.data.photos.photo)
+      }
       })
       .catch(error => {
         // handle error
         console.log("Error fetching and parsing data", error);
-      })
-  },[]);
+      });
+};
+ 
 
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <SearchForm onSearch={performSearch} />
+      <Navigation />
+      <Routes>
+        <Route path="/" element={<Navigate to="/bunny" />} />
+        
+      </Routes>
     </div>
   );
 }
