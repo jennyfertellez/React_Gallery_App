@@ -36,7 +36,7 @@ const App = (props) => {
       } else if (keyword === "kitten") {
         setKitten(response.data.photos.photo);
       } else if (keyword === "llama") {
-        setLlama(reponse.data.photos.photo);
+        setLlama(response.data.photos.photo);
       } else {
         setPhotos(response.data.photos.photo)
       }

@@ -1,11 +1,11 @@
 import React from "react";
-import Photo from "./Photo";
+import Photos from "./Photos";
 
 //Photo Container
 const PhotoContainer = (props) => {
     const photoResults = props.data;
 
-    let photos = photoResults.map((photo) => (
+    let photoList = photoResults.map((photo) => (
         <Photos 
             server={photo.server}
             secret={photo.secret}
@@ -17,7 +17,7 @@ const PhotoContainer = (props) => {
 
     return (
         <div class="photo-container">
-            <ul>{photos}</ul>
+            <ul>{photoList}</ul>
         </div>
     );
 };
