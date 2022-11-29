@@ -1,7 +1,13 @@
+import React, { useEffect, useState } from "react";
+import apiKey from './config'
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const [photo, setPhoto] = useState([]);
+  useEffect(() => {
+    fetch();
+  },[]);
   return (
     <div className="App">
       <header className="App-header">
