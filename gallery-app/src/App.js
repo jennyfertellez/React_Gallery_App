@@ -7,7 +7,7 @@ import apiKey from './config'
 //App Components
 import SearchForm from "./components/SearchForm";
 import Navigation from "./components/Navigation";
-import PhotoContainer from "./components/PhotoContainer.js"
+import PhotoContainer from "./components/PhotoContainer"
 import NotFound from "./components/NotFound";
 
 
@@ -55,7 +55,7 @@ const App = (props) => {
       <Navigation />
       <Routes>
         <Route path="/" element={<Navigate to="/bunny" />} />
-        
+
       </Routes>
     </div>
   );
