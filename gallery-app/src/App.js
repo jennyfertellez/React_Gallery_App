@@ -7,15 +7,18 @@ import apiKey from './config'
 //App Components
 import SearchForm from "./components/SearchForm";
 import Navigation from "./components/Navigation";
-import PhotoContainer from "./components/PhotoContainer"
+import PhotoContainer from "./components/PhotoContainer.js"
 import NotFound from "./components/NotFound";
 
 
 //Main App Component
 const App = (props) => {
   const [photos, setPhotos] = useState([]);
+  const [bunny, setBunny] = useState([]);
+  const [kitten, setKitten] = useState([]);
+  const [llama, setLlama] = useState([]);
 
-  
+
   useEffect(() => {
     axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${keyword}&per_page=24&format=json&nojsoncallback=1`)
       .then(response => {
