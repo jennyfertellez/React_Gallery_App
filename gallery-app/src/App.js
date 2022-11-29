@@ -2,10 +2,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios"
 import apiKey from './config'
-//import logo from './logo.svg';
-//import './App.css';
 
 //Components
+import SearchForm from "./components/SearchForm";
+import Navigation from "./components/Navigation";
+import PhotoContainer from "./components/PhotoContainer"
+import NotFound from "./components/NotFound";
 
 
 //Main App Component
@@ -23,6 +25,8 @@ function App = (props) => {
         console.log("Error fetching and parsing data", error);
       })
   },[]);
+
+
   return (
     <div className="App">
       <header className="App-header">
