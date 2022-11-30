@@ -18,7 +18,7 @@ const App = (props) => {
   const [kitten, setKitten] = useState([]);
   const [llama, setLlama] = useState([]);
 
-//
+//Perform a search depending on the state called
   useEffect(() => {
     performSearch();
     performSearch("bunny");
@@ -26,8 +26,8 @@ const App = (props) => {
     performSearch("llama");
   },[]);
 
-//
-  const performSearch = (keyword) => {
+//using Axios, the function fetches the API
+  const performSearch = (keyword = 'bunny') => {
     axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${keyword}&per_page=24&format=json&nojsoncallback=1`)
     .then((response) => {
         // handle success
