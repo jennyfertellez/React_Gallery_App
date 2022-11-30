@@ -5,7 +5,7 @@ import Photos from "./Photos";
 const PhotoContainer = (props) => {
     const photoResults = props.data;
 
-    let photoList = photoResults.map((photo) => (
+    let photoList = photoResults.map(photo => (
         <Photos 
             server={photo.server}
             secret={photo.secret}

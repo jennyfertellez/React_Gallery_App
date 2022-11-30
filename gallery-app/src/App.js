@@ -55,7 +55,11 @@ const App = (props) => {
       <Navigation />
       <Routes>
         <Route path="/" element={<Navigate to="/bunny" />} />
-
+        <Route path="/bunny" element={<PhotoContainer data={bunny} />} />
+        <Route path="/kitten" element={<PhotoContainer data={kitten} />} />
+        <Route path="/llama" element={<PhotoContainer data={llama} />} />
+        <Route path="/search/:keyword" element={<PhotoContainer data={photos} />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
